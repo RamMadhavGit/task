@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-body">
+    <h1> <i (click)="homenavigate()" class="homelink">Home</i>/Book Category</h1>
+    <div class="row">
+      <div *ngFor="let book of bookList; index as topicindex">
+        <div class="col paddingbetweencol">
+          <div class="card listname" style="width: 18rem">
+            <div class="card-body"  (click)="chooseCategory(book)"    > 
+               {{ book.list_name }}  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

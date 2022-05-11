@@ -1,0 +1,119 @@
+<div class="card">
+  <div class="card-body">
+     <h1> <i (click)="homenavigate()" class="homelink">Home</i>/Article Category: </h1> 
+      <br>
+    <mat-form-field>
+      <mat-label>Select Type</mat-label>
+      <mat-select [(ngModel)]="selectedArticleValue" name="type" >
+        <mat-option *ngFor="let type of ArticleList" [value]="type.text" class="typeOfarticle" (click)="getArticles()">
+          {{ type.text }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>   
+
+
+<div *ngFor="let articles of ArticleListShow; index as artindex">
+            <div class="row">
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <div *ngIf="articles?.title == ''; else balancearticle ">
+                        <!-- Update will release soon wait for update !! -->
+                    </div>
+                    <ng-template #balancearticle>
+        
+                            <mat-accordion class="paddingforArticlespace">
+                                 
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false" >
+                                  <mat-expansion-panel-header>
+                                      
+                                    <mat-panel-title>
+                                        {{articles?.title}} &nbsp;
+                                        <i>Posted by:  {{articles?.byline}} @ {{articles?.published_date | date:'fullDate'}}  </i>
+                                      
+                                        <!-- <mat-icon style="font-size: 17px;">schedule</mat-icon> -->
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+
+                                  <!-- <div *ngFor="let multi of articles.multimedia"> -->
+
+                                    <div class="card">
+                                         
+                                            <div class="row">
+                                                <div class="col-sm-4 col-mg-4 col-lg-4">
+                                                <img src="{{articles.multimedia[0].url}}" class="card-img-top"
+                                                    alt="multi" style="height: 220px"/>
+                                                     <small>{{articles.multimedia[0].caption}}</small></div>
+
+                                                     <div class="col-sm-4 col-mg-4 col-lg-4">
+                                                         <i>For more details : </i> <a href="{{articles.url}}" target="_blank" rel="noreferrer noopener">
+                                                             click here
+                                                         </a>
+                                                         
+                                                            
+                                                            </div>
+                                             </div>
+                                            
+
+
+
+                                    <!-- </div> -->
+
+
+                                  </div>
+
+
+
+
+
+                                  
+                                  
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                    </ng-template>
+                </div>
+    </div> 
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+

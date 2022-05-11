@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-body">
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, NYT!</h1>
+      <p class="lead">
+        Welcome to NYT!! News, Entertainment, Sports, Books, Articles now at
+        your fingers.
+      </p>
+      <hr class="my-4" />
+      <p>Top listed items below for your view</p>
+      <div class="alert alert-info" role="alert" *ngIf="alertForUpdate"> 
+        Stories will update soon
+      </div>
+
+      <div class="row">
+
+        <div *ngFor="let items of totalitems">
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h3 class="card-title">{{items.text}}</h3>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ Now_date | date: "fullDate" }}
+              </h6>
+              <p class="card-text cardlink" (click)="TypeOfView(items)" >
+                See full {{items.text}}...
+              </p>
+              <button mat-mini-fab color="primary" aria-label="book mark">
+                <mat-icon>bookmark</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
